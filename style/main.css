@@ -1,0 +1,15 @@
+h3,
+h4{ 
+    color: brown;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input,
+form a {
+    margin: 20px;
+}
