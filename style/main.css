@@ -13,3 +13,7 @@ form input,
 form a {
     margin: 20px;
 }
+
+h1 {
+    color: green;
+}
