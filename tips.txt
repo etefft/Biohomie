@@ -1,0 +1,9 @@
+cd .. - moves up a directory
+cd folder/file name - moves in a directory
+ls - view whats in the current directory
+
+git status - checks the status of the project
+git add file/* - adds files to the staging area
+git commit -m "what I did" - commits and adds a messages
+git push - pushes the changes up to github
+git pull - pulls down current project. Do before you start a new change.
