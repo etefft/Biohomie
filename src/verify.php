@@ -13,15 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["login"])) {
         if (!$_POST["email"] || !$_POST["password"]) {
             header("Location: ../?empty=true");
-        } 
-        $email = test_input($_POST["email"]);
-        $password = test_input($_POST["password"]);
-
+        } else {
+            // validates the code if the variables are not empty
+            $email = test_input($_POST["email"]);
+            $password = test_input($_POST["password"]);
+        }
         
 
-
     } else {
-        //sign-up verification goes here
+        //sign-up validation goes here
+        
         
     }
     
