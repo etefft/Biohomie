@@ -6,9 +6,11 @@
     Email
     <input type="email" name="email" id="">
     Password
-    <input type="password" name="password" id="">
+    <input type="password" name="password" id="sign-up-password">
     Confirm Password
-    <input type="password" name="password-verify" id="">
+    <input type="password" name="password-verify" id="sign-up-password-check">
     <input type="hidden" name="sign-up">
-    <button type="submit" name="sign-up-submit">Submit</button>
+    <p id="pass-match"></p>
+    <button id="sign-up-submit" type="submit" name="sign-up-submit">Submit</button>
 </form>
+<script src="js/passcheck.js"></script>
