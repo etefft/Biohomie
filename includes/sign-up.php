@@ -9,5 +9,6 @@
     <input type="password" name="password" id="">
     Confirm Password
     <input type="password" name="password-verify" id="">
+    <input type="hidden" name="sign-up">
     <button type="submit" name="sign-up-submit">Submit</button>
 </form>
