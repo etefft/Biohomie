@@ -20,4 +20,5 @@
         <a href="">Forgot Password</a>
         <button type="submit" name="login-submit">Submit</button>
     </form>
+    <a href="?input=signup"><button>Sign up</button></a>
 </div>

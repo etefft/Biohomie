@@ -13,4 +13,5 @@
     <p id="pass-match"></p>
     <button id="sign-up-submit" type="submit" name="sign-up-submit">Submit</button>
 </form>
+<a href="?input=login"><button>Login</button></a>
 <script src="js/passcheck.js"></script>
