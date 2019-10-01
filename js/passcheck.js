@@ -4,7 +4,7 @@ $(function(){
     
     
     $('#sign-up-password-check').on('keyup', function() {
-        if ($('#sign-up-password').val() == $('#sign-up-password-check').val()) {
+        if ($('#sign-up-password').val() == $('#sign-up-password-check').val() && !$('#sign-up-password').val() == "") {
             $('#sign-up-submit').prop('disabled', false);
             $('#pass-match').html('Passwords match!');
             $('#pass-match').addClass('text-success');
