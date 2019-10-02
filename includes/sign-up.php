@@ -1,4 +1,13 @@
-<form action="" method="post">
+<form action="<?php echo htmlspecialchars("src/verify.php");?>" method="post">
+    <?php
+        if (!empty($formErr)) {
+            ?>
+            <div class="alert alert-danger" role="alert">
+    <p id="sign-up-error" class=""><?php echo $formErr; ?></p>
+    </div>
+    <?php
+        }
+    ?>
     First Name
     <input type="text" name="firstname" id="firstname">
     Last Name
