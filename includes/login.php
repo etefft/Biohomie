@@ -13,9 +13,9 @@
     
        
         Email
-        <input type="email" name="email" id="" >
+        <input type="email" name="email" id="" required>
         Password
-        <input type="password" name="password" id="" >
+        <input type="password" name="password" id="" required>
         <input type="hidden" name="login">
         <a href="">Forgot Password</a>
         <button type="submit" name="login-submit">Submit</button>

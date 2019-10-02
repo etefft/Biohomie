@@ -9,15 +9,15 @@
         }
     ?>
     First Name
-    <input type="text" name="firstname" id="firstname">
+    <input type="text" name="firstname" id="firstname" required>
     Last Name
-    <input type="text" name="lastname" id="lastname">
+    <input type="text" name="lastname" id="lastname" required>
     Email
-    <input type="email" name="email" id="">
+    <input type="email" name="email" id="" required>
     Password
-    <input type="password" name="password" id="sign-up-password">
+    <input type="password" name="password" id="sign-up-password" required>
     Confirm Password
-    <input type="password" name="password-verify" id="sign-up-password-check">
+    <input type="password" name="password-verify" id="sign-up-password-check" required>
     <input type="hidden" name="sign-up">
     <p id="pass-match"></p>
     <button id="sign-up-submit" type="submit" name="sign-up-submit">Submit</button>
