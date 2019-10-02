@@ -21,9 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
     } else {
-        //sign-up validation goes here
-        
-        
+        if (isset($_POST["sign-up"])) {
+            if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] || !$_POST["password"]) {
+                header("Location: ../?empty=true&input=sign-up");
+        } else {
+            $firstname = test_input($_POST['firstname']);
+            $lastname = test_input($_POST['lastname']);
+            $email = test_input($_POST['email']);
+            $password = test_input($_POST['password']);
     }
     
 }
