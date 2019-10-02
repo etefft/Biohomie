@@ -8,6 +8,3 @@ git commit -m "what I did" - commits and adds a messages
 git pull https://github.com/etefft/Biohomie.git - pulls new changes
 git push --set-upstream origin signuppage - used after branching
 git checkout -b <branch name> - creates new branch
-
-
-
