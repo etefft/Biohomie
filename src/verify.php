@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
     } else {
+        // perry added this code 
         if (isset($_POST["sign-up"])) {
             if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] ||      !$_POST["password"]) {
                 header("Location: ../index.php?empty=true&input=signup");
