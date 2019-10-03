@@ -1,3 +1,7 @@
+   <!-- PAGE INFO -->
+
+    <!-- This page contains any code that will be on the Header of any page unless a separate header is needed and created -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

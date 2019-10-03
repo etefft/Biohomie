@@ -1,3 +1,7 @@
+   <!-- PAGE INFO -->
+
+    <!-- This page has code that will be used for any type of sign up form -->
+
 <form action="<?php echo htmlspecialchars("src/verify.php");?>" method="post">
     <?php
         if (!empty($formErr)) {

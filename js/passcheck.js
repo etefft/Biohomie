@@ -1,3 +1,7 @@
+// PAGE INFO
+
+// This page contains JS code specific to the password checker
+
 $(function(){ 
 
     $('#sign-up-submit').prop('disabled', true);

@@ -1,3 +1,8 @@
+   <!-- PAGE INFO -->
+
+    <!-- This page has code that will be used for any type of login -->
+
+
 <div id="login-form">
     
     <form action="<?php echo htmlspecialchars("src/verify.php");?>" method="post">

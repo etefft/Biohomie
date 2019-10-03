@@ -1,3 +1,7 @@
+<!-- PAGE INFO -->
+
+<!-- This page does NOT correlate with a landing page, it is for verifying any code that is put into an input box and then sending the User to the appropriate page -->
+
 <?php
 
 function test_input($data) {

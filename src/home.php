@@ -1,3 +1,7 @@
+<!-- PAGE INFO -->
+
+<!-- This page correlates with anything that is being sent to INDEX.php IF you are writing here it will be be evalutated by this page  -->
+
 <?php 
 $formErr = "";
 
