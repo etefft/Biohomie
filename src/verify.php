@@ -4,12 +4,15 @@
 
 <?php
 
+require("classes.php");
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -26,13 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } else {
         if (isset($_POST["sign-up"])) {
-            if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] ||      !$_POST["password"]) {
+            if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] || !$_POST["password"]) {
                 header("Location: ../index.php?empty=true&input=signup");
             } else {
                 $firstname = test_input($_POST['firstname']);
                 $lastname = test_input($_POST['lastname']);
                 $email = test_input($_POST['email']);
                 $password = test_input($_POST['password']);
+
+                $user = new User($firstname, $lastname, $email, $password);
+
             }
     
         }
