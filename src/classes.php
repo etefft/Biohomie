@@ -70,7 +70,7 @@ class SQL
 
 }
 
-class User
+class newUser
 {
     public $firstname;
     public $lastname;
@@ -140,4 +140,6 @@ class User
 
 
 }
+
+
 
