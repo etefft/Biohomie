@@ -5,12 +5,17 @@
 <?php 
 $formErr = "";
 
-if (isset($_GET["empty"])) {
+if (isset($_GET['empty'])) {
     if ($_GET["empty"] === "true") {
         $formErr = "You need to fill out all the forms";
-    }
+    } 
     
-} 
+} elseif (isset($_GET['exist'])) {
+    if ($_GET["exist"] === "true") {
+        $formErr = "This user already exists";
+    }
+}
+
 
 
 ?>
