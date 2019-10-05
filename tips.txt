@@ -4,6 +4,7 @@ ls - view whats in the current directory
 
 git status - checks the status of the project
 git add file/* - adds files to the staging area
+git reset <filename> - remove file from stagin area
 git commit -m "what I did" - commits and adds a messages
 git pull https://github.com/etefft/Biohomie.git - pulls new changes
 git push --set-upstream origin signuppage - used after branching
