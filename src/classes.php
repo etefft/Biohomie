@@ -24,23 +24,10 @@ class SQL
         return $this->sqlStatement($this->type, $this->table, $this->valueType, $this->columns, $this->values, $this->list);
     }
 
-    // public function placeholderReplacement($arr)
-    // {
-    //     function split($num)
-    //     {
-    //         return "?,";
-    //     }
-    //     $placeholder = implode(array_map("split", $arr));
-    //     $placeholder = trim($placeholder, ",");
-    //     return $placeholder;
-    // }
-
     public function sqlStatement($type, $table, $valueType, $columns, $values, $list)
     {
-        require('db/dbconnect.php');
-        #code... 
+        require('db/dbconnect.php'); 
         $query;
-        // $bind_param;
 
         switch ($type) {
             case 1:
@@ -92,7 +79,6 @@ class User
     public $level;
 
     public function __construct($firstname, $lastname, $email, $password) {
-        // var_dump($this->userExists($email));
         if($this->userExists($email)) {
             echo "yes";
             $this->firstname = $firstname;
