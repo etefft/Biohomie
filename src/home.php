@@ -9,11 +9,12 @@ if (isset($_GET['empty'])) {
     if ($_GET["empty"] === "true") {
         $formErr = "You need to fill out all the forms";
     } 
-    
+    unset($_GET);
 } elseif (isset($_GET['exist'])) {
     if ($_GET["exist"] === "true") {
         $formErr = "This user already exists";
     }
+    unset($_GET);
 }
 
 

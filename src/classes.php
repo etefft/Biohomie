@@ -49,6 +49,15 @@ class SQL
                 } else {
                     return true;
                 }
+            case 3:
+                $email = $values;
+                $query = "SELECT $columns FROM $table WHERE email =?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $email);
+                $stmt->execute();
+                $stmt->bind_result($passwordFetched);
+                $stmt->fetch();
+                return $passwordFetched;
             default:
                 # code...
                 break;
@@ -86,7 +95,7 @@ class newUser
             $this->email = $email;
             $this->password = $this->passwordHasher($password);
             
-            $this->dbSignup($firstname, $lastname, $email, $password, 1);
+            $this->dbSignup($this->firstname, $this->lastname, $this->email, $this->password, 1);
         } else {
             header("Location: ../index.php?exist=true&input=signup");
         }
@@ -102,7 +111,8 @@ class newUser
 
     public function passwordHasher($password)
     {
-        return $password;
+        $passHashed = password_hash($password, PASSWORD_DEFAULT);
+        return $passHashed;
     }
 
     public function dbSignup($firstname, $lastname, $email, $password1, $level)
@@ -112,18 +122,59 @@ class newUser
         $columns =  "first_name, last_name, email, password, user_confirmed, user_level";
         $newUser = new SQL(1, "user", "sssssi", $columns, $values, false);
         if($newUser->checker()) {
-            // header("Location: ../dashboard.php");
+            header("Location: ../dashboard.php");
         } else {
             # code...
         }
     }
 
-    // public function loginUser($email, $password)
+    
+
+
+}
+
+class User extends newUser 
+{
+    public $firstname;
+    public $lastname;
+    public $email;
+    public $password;
+    public $level;
+
+    public function __construct($email, $password) {
+        var_dump($this->userExists($email));
+        if(!$this->userExists($email)) {
+            if ($this->verifyPassword($email, $password)) {
+                $this->email = $email;
+                $this->password = $password;
+                echo "you are logged in $email with password:$password";
+            }
+        } else {
+            header("Location: ../index.php?exist=true&input=signup");
+        }
+        
+       
+    }
+
+    public function verifyPassword($email, $password)
+    {
+        $passCheck = new SQL(3, "user", "s", 'password', $email, false);
+        $userPassword = $passCheck->checker();
+        $correct = password_verify($password, $userPassword);
+        return $correct;
+    }
+
+    public function loginUser($email, $password)
+    {
+        # code...
+    }
+
+    // public function forgotPassword()
     // {
     //     # code...
     // }
 
-    // public function forgotPassword()
+    // public function changePassword(Type $var = null)
     // {
     //     # code...
     // }
@@ -137,9 +188,6 @@ class newUser
     // {
     //     # code...
     // }
-
-
 }
-
 
 
