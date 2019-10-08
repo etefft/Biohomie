@@ -148,6 +148,8 @@ class User extends newUser
                 $this->email = $email;
                 $this->password = $password;
                 echo "you are logged in $email with password:$password";
+            } else {
+                header("Location: ../index.php?loginFail=true&input=login");
             }
         } else {
             header("Location: ../index.php?exist=true&input=signup");
