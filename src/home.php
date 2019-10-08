@@ -15,6 +15,10 @@ if (isset($_GET['empty'])) {
         $formErr = "This user already exists";
     }
     unset($_GET);
+} elseif (isset($_GET['loginFail'])) {
+    if ($_GET["loginFail"] === "true") {
+        $formErr = "Email or password incorrect.";
+    }
 }
 
 
