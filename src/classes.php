@@ -147,7 +147,7 @@ class User extends newUser
             if ($this->verifyPassword($email, $password)) {
                 $this->email = $email;
                 $this->password = $password;
-                echo "you are logged in $email with password:$password";
+                header("Location: ../dashboard/");
             } else {
                 header("Location: ../index.php?loginFail=true&input=login");
             }
