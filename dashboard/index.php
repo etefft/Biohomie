@@ -1,6 +1,6 @@
 <?php
-
-    require("../src/dashboard");
+    require("../src/sessions.php")
+    require("../src/dashboard.php");
 
 ?>
 

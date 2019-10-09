@@ -5,5 +5,13 @@
 
 
 <?php
+session_start();
+require("classes.php");
+
+
+
+if (isset($_SESSION['user_id'])) {
+    
+}
 
 ?>

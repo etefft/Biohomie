@@ -19,7 +19,7 @@ class SQL
         $this->list = $list;
     }
 
-    public function checker()
+    public function runSql()
     {
         return $this->sqlStatement($this->type, $this->table, $this->valueType, $this->columns, $this->values, $this->list);
     }
@@ -58,6 +58,17 @@ class SQL
                 $stmt->bind_result($passwordFetched);
                 $stmt->fetch();
                 return $passwordFetched;
+            case 4:
+                $email = $values;
+                $query = "SELECT $columns FROM $table WHERE email =?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $email);
+                $stmt->execute();
+                $stmt->bind_result($idFetched, $fnameFetched, $lnameFetched);
+                $stmt->fetch();
+                $names = [$idFetched, $fnameFetched, $lnameFetched];
+                return $names;
+            
             default:
                 # code...
                 break;
@@ -106,7 +117,7 @@ class newUser
     public function userExists($email)
     {
         $exists = new SQL(2, "user", "s", "email", $email, false);
-        return $exists->checker();
+        return $exists->runSql();
     }
 
     public function passwordHasher($password)
@@ -121,7 +132,7 @@ class newUser
         $values = [$firstname, $lastname, $email, $password1, 'no', $level];
         $columns =  "first_name, last_name, email, password, user_confirmed, user_level";
         $newUser = new SQL(1, "user", "sssssi", $columns, $values, false);
-        if($newUser->checker()) {
+        if($newUser->runSql()) {
             header("Location: ../dashboard.php");
         } else {
             # code...
@@ -147,6 +158,10 @@ class User extends newUser
             if ($this->verifyPassword($email, $password)) {
                 $this->email = $email;
                 $this->password = $password;
+                $session = new Session($this->email);
+                $userInfo = $session->getUserInfo($session->email);
+                $session->assignSessionValue($userInfo, $this->email);
+                
                 echo "you are logged in $email with password:$password";
             } else {
                 header("Location: ../index.php?loginFail=true&input=login");
@@ -161,7 +176,7 @@ class User extends newUser
     public function verifyPassword($email, $password)
     {
         $passCheck = new SQL(3, "user", "s", 'password', $email, false);
-        $userPassword = $passCheck->checker();
+        $userPassword = $passCheck->runSql();
         $correct = password_verify($password, $userPassword);
         return $correct;
     }
@@ -186,10 +201,38 @@ class User extends newUser
     //     # code...
     // }
 
-    // public function getUserInfo()
-    // {
-    //     # code...
-    // }
+    
 }
+
+class Session
+{
+    public $email;
+    public $id;
+    public $fname;
+    public $lname;
+    public $email;
+
+    public function __construct($email) {
+        $this->email = $email;
+       
+    }
+
+    public function getUserInfo($email)
+    {
+        $getInfo = new SQL(4, "user", "s", "user_ID, first_name, last_name", $email, false);
+        $user = $getInfo->runSql();
+        return $user;
+    }
+
+    public function assignSessionValue($userInfo, $email)
+    {
+        $_SESSION['user_id'] = $userInfo[0];
+        $_SESSION['first_name'] = $userInfo[1];
+        $_SESSION['last_name'] = $userInfo[2];
+        $_SESSION['email'] = $email;
+    }
+
+}
+
 
 
