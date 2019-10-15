@@ -55,9 +55,21 @@ class SQL
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param($valueType, $email);
                 $stmt->execute();
-                $stmt->bind_result($passwordFetched);
+                $stmt->bind_result($dataFetched);
                 $stmt->fetch();
-                return $passwordFetched;
+                var_dump($dataFetched);
+                return $dataFetched;
+            case 4:
+                $email = $values;
+                $query = "SELECT $columns FROM $table WHERE email =?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $email);
+                $stmt->execute();
+                $stmt->bind_result($fname, $lname);
+                $stmt->fetch();
+                $dataFetched = [$fname, $lname];
+                var_dump($dataFetched);
+                return $dataFetched;
             default:
                 # code...
                 break;
@@ -79,7 +91,7 @@ class SQL
 
 }
 
-class newUser
+class newUser extends Sessions
 {
     public $firstname;
     public $lastname;
@@ -89,13 +101,15 @@ class newUser
 
     public function __construct($firstname, $lastname, $email, $password) {
         if($this->userExists($email)) {
-            echo "yes";
             $this->firstname = $firstname;
             $this->lastname = $lastname;
             $this->email = $email;
             $this->password = $this->passwordHasher($password);
             
             $this->dbSignup($this->firstname, $this->lastname, $this->email, $this->password, 1);
+            $userSessions = [$firstname, $lastname, $email];
+            $this->startSession();
+            $this->checkPermissions(100, $userSessions);
             header("Location: ../dashboard/signup_verify.php");
         } else {
             header("Location: ../index.php?exist=true&input=signup");
@@ -146,8 +160,12 @@ class User extends newUser
         var_dump($this->userExists($email));
         if(!$this->userExists($email)) {
             if ($this->verifyPassword($email, $password)) {
+                $userNames = $this->getUserInfo($email);
+                var_dump($userNames);
                 $this->email = $email;
                 $this->password = $password;
+                $user = [$userNames[0], $userNames[1], $email];
+                $this->checkPermissions(200, $user);
                 header("Location: ../dashboard/");
             } else {
                 header("Location: ../index.php?loginFail=true&input=login");
@@ -172,6 +190,14 @@ class User extends newUser
         # code...
     }
 
+    public function getUserInfo($email)
+    {
+        $columns = "first_name, last_name";
+        $retrieve = new SQL(4, "user", "s", $columns, $email, false);
+        $names = $retrieve->checker();
+        return $names;
+    }
+
     // public function forgotPassword()
     // {
     //     # code...
@@ -192,5 +218,34 @@ class User extends newUser
     //     # code...
     // }
 }
+
+
+class Sessions
+{
+
+    public function startSession()
+    {
+        session_start();
+    }
+
+    public function stopSession()
+    {
+        $this->startSession();
+        $_SESSION["level"] = "";
+        session_destroy();
+    }
+
+    public function checkPermissions($level, $user)
+    {
+        $this->stopSession();
+        $this->startSession();
+        $_SESSION["firstname"] = $user[0];
+        $_SESSION["lastname"] = $user[1];
+        $_SESSION["email"] = $user[2];
+        $_SESSION["level"] = $level;
+    }
+}
+
+   
 
 

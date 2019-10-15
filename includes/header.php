@@ -25,5 +25,5 @@
 
 <body>
 <?php
-require("nav.php");
+require((isset($_SESSION["level"]) ? "nav-logged.php" : "nav.php"));
 ?>

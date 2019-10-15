@@ -3,8 +3,12 @@
     require("../src/dashboard.php");
     require("../includes/header.php");
 ?>
+    <?php 
+        $firstnameUser = $_SESSION["firstname"];
+        echo "<h3>Hello, $firstnameUser!</h3>";
+    ?>
+    <p>You are logged in.</p>
 
-    <h3>You are logged in.</h3>
 <?php
 require("../includes/footer.php");
 
