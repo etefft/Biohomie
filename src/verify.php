@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $password = test_input($_POST['password']);
 
                 $user = new newUser($firstname, $lastname, $email, $password);
-
             }
     
         }
