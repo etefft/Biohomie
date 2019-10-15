@@ -31,6 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         unset($_POST);
 
+    } elseif (isset($_POST["logout"])) {
+        $loggedOut = new Sessions();
+        $loggedOut->stopSession();
+        header("Location: ../index.php?input=login");
     } else {
         if (isset($_POST["sign-up"])) {
             if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] || !$_POST["password"]) {
@@ -46,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         }
         unset($_POST);
-}
+    }
 }
 
 ?>
