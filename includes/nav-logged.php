@@ -31,9 +31,10 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li> -->
     </ul>
+    <?php echo $_SESSION["firstname"]; ?>
     <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo htmlspecialchars("../src/verify.php");?>">
       <input type="hidden" name="logout">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login Out</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
     </form>
   </div>
 </nav>

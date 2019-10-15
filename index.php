@@ -1,5 +1,8 @@
-<?php require("src/home.php") ?>
-<?php require("includes/header.php"); ?>
+<?php
+    require("includes/session.php");
+    require("src/home.php"); 
+    require("includes/header.php"); 
+?>
 <h3>Our content will go here</h3>
 
 <?php

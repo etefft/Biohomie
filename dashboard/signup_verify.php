@@ -1,4 +1,5 @@
 <?php
+require("../includes/session.php");
 require("../includes/header.php");
 ?>
     <section>
