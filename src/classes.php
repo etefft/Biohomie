@@ -96,6 +96,7 @@ class newUser
             $this->password = $this->passwordHasher($password);
             
             $this->dbSignup($this->firstname, $this->lastname, $this->email, $this->password, 1);
+            header("Location: ../dashboard/signup_verify.php");
         } else {
             header("Location: ../index.php?exist=true&input=signup");
         }
