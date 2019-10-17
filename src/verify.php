@@ -3,7 +3,7 @@
 <!-- This page does NOT correlate with a landing page, it is for verifying any code that is put into an input box and then sending the User to the appropriate page -->
 
 <?php
-
+require(realpath( dirname( __FILE__ ) ) . '\..\config\config.php' );
 require("classes.php");
 
 function test_input($data) {

@@ -5,7 +5,7 @@
     <footer>
         
     </footer>
-    <script src="js/main.js"></script>
+    <script src="<?php echo APP_ROOT . '/js/main.js' ?>"></script>
     </body>
 
     </html>
