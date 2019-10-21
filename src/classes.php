@@ -64,9 +64,9 @@ class SQL
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param($valueType, $email);
                 $stmt->execute();
-                $stmt->bind_result($fname, $lname);
+                $stmt->bind_result($username);
                 $stmt->fetch();
-                $dataFetched = [$fname, $lname];
+                $dataFetched = $username;
                 return $dataFetched;
 
             case 5:
@@ -171,10 +171,9 @@ class User extends newUser
         if(!$this->userExists($email)) {
             if ($this->verifyPassword($email, $password)) {
                 $userNames = $this->getUserInfo($email);
-                var_dump($userNames);
                 $this->email = $email;
                 $this->password = $password;
-                $user = [$userNames[0], $userNames[1], $email];
+                $user = [$userNames, $email];
                 $this->checkPermissions(200, $user);
                 header("Location: ../dashboard/");
             } else {

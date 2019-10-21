@@ -26,10 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // validates the code if the variables are not empty
             $email = test_input($_POST["email"]);
             $password = test_input($_POST["password"]);
-
             $user = new User($email, $password);
-
-
         }
         unset($_POST);
 
