@@ -6,6 +6,8 @@
 require(realpath( dirname( __FILE__ ) ) . '\..\config\config.php' );
 require("classes.php");
 
+$usernameExists;
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -37,15 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../index.php?input=login");
     } else {
         if (isset($_POST["sign-up"])) {
-            if (!$_POST["firstname"] || !$_POST["lastname"] || !$_POST["email"] || !$_POST["password"]) {
+            if (!$_POST["username"] || !$_POST["email"] || !$_POST["password"]) {
                 header("Location: ../index.php?empty=true&input=signup");
             } else {
-                $firstname = test_input($_POST['firstname']);
-                $lastname = test_input($_POST['lastname']);
+                $username = test_input($_POST['username']);
                 $email = test_input($_POST['email']);
                 $password = test_input($_POST['password']);
 
-                $user = new newUser($firstname, $lastname, $email, $password);
+                $user = new newUser($username, $email, $password);
             }
     
         }

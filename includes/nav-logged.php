@@ -34,7 +34,7 @@
            </div>
          </li>
        </ul>
-       <?php echo $_SESSION["firstname"]; ?>
+       <?php echo $_SESSION["username"]; ?>
 
      </div>
    </nav>

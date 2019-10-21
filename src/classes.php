@@ -31,10 +31,9 @@ class SQL
 
         switch ($type) {
             case 1:
-                $query = "INSERT INTO $table ($columns) VALUES (?,?,?,?,?,?)";
-                var_dump($values);
+                $query = "INSERT INTO $table ($columns) VALUES (?,?,?,?,?)";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param($valueType, $values[0], $values[1], $values[2], $values[3], $values[4], $values[5]);
+                $stmt->bind_param($valueType, $values[0], $values[1], $values[2], $values[3], $values[4]);
                 $stmt->execute();
                 break;
 
@@ -68,8 +67,22 @@ class SQL
                 $stmt->bind_result($fname, $lname);
                 $stmt->fetch();
                 $dataFetched = [$fname, $lname];
-                var_dump($dataFetched);
                 return $dataFetched;
+
+            case 5:
+                $usernameSet = $values;
+                $query = "SELECT $columns FROM $table WHERE $columns = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $usernameSet);
+                $stmt->execute();
+                $stmt->bind_result($fetchedUsername);
+                $stmt->fetch();
+                if (empty($fetchedUsername)) {
+                   return "true";
+                } else {
+                    return "false";
+                }
+                
             default:
                 # code...
                 break;
@@ -93,21 +106,19 @@ class SQL
 
 class newUser extends Sessions
 {
-    public $firstname;
-    public $lastname;
+    public $username;
     public $email;
     public $password;
     public $level;
 
-    public function __construct($firstname, $lastname, $email, $password) {
+    public function __construct($username, $email, $password) {
         if($this->userExists($email)) {
-            $this->firstname = $firstname;
-            $this->lastname = $lastname;
+            $this->username = $username;
             $this->email = $email;
             $this->password = $this->passwordHasher($password);
             
-            $this->dbSignup($this->firstname, $this->lastname, $this->email, $this->password, 1);
-            $userSessions = [$firstname, $lastname, $email];
+            $this->dbSignup($this->username, $this->email, $this->password, 1);
+            $userSessions = [$username, $email];
             $this->startSession();
             $this->checkPermissions(100, $userSessions);
             header("Location: ../dashboard/signup_verify.php");
@@ -130,12 +141,12 @@ class newUser extends Sessions
         return $passHashed;
     }
 
-    public function dbSignup($firstname, $lastname, $email, $password1, $level)
+    public function dbSignup($username, $email, $password1, $level)
     {
         require("db/dbconnect.php");
-        $values = [$firstname, $lastname, $email, $password1, 'no', $level];
-        $columns =  "first_name, last_name, email, password, user_confirmed, user_level";
-        $newUser = new SQL(1, "user", "sssssi", $columns, $values, false);
+        $values = [$username, $email, $password1, 'no', $level];
+        $columns =  "username, email, password, user_confirmed, user_level";
+        $newUser = new SQL(1, "user", "ssssi", $columns, $values, false);
         if($newUser->checker()) {
             header("Location: ../dashboard.php");
         } else {
@@ -150,8 +161,7 @@ class newUser extends Sessions
 
 class User extends newUser 
 {
-    public $firstname;
-    public $lastname;
+    public $username;
     public $email;
     public $password;
     public $level;
@@ -192,7 +202,7 @@ class User extends newUser
 
     public function getUserInfo($email)
     {
-        $columns = "first_name, last_name";
+        $columns = "username";
         $retrieve = new SQL(4, "user", "s", $columns, $email, false);
         $names = $retrieve->checker();
         return $names;
@@ -239,9 +249,8 @@ class Sessions
     {
         $this->stopSession();
         $this->startSession();
-        $_SESSION["firstname"] = $user[0];
-        $_SESSION["lastname"] = $user[1];
-        $_SESSION["email"] = $user[2];
+        $_SESSION["username"] = $user[0];
+        $_SESSION["email"] = $user[1];
         $_SESSION["level"] = $level;
     }
 }

@@ -12,12 +12,12 @@
     <?php
         }
     ?>
-    First Name
-    <input type="text" name="firstname" id="firstname" required>
-    Last Name
-    <input type="text" name="lastname" id="lastname" required>
     Email
     <input type="email" name="email" id="" required>
+    Username
+    <input type="text" name="username" id="username" required>
+    <p id="user-exists"></p>
+ 
     Password
     <input type="password" name="password" id="sign-up-password" required>
     Confirm Password
