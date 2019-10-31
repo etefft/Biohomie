@@ -64,9 +64,9 @@ class SQL
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param($valueType, $email);
                 $stmt->execute();
-                $stmt->bind_result($username);
+                $stmt->bind_result($username, $userID);
                 $stmt->fetch();
-                $dataFetched = $username;
+                $dataFetched = [$username, $userID];
                 return $dataFetched;
 
             case 5:
@@ -82,6 +82,15 @@ class SQL
                 } else {
                     return "false";
                 }
+
+            case 6:
+                $query = "INSERT INTO $table ($columns) VALUES (?,?,?)";
+                echo $query;
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[0], $values[1], $values[2]);
+                $stmt->execute();
+                return true;
+                break;
                 
             default:
                 # code...
@@ -173,7 +182,7 @@ class User extends newUser
                 $userNames = $this->getUserInfo($email);
                 $this->email = $email;
                 $this->password = $password;
-                $user = [$userNames, $email];
+                $user = [$userNames[0], $userNames[1], $email];
                 $this->checkPermissions(200, $user);
                 header("Location: ../dashboard/");
             } else {
@@ -201,7 +210,7 @@ class User extends newUser
 
     public function getUserInfo($email)
     {
-        $columns = "username";
+        $columns = "username, user_ID";
         $retrieve = new SQL(4, "user", "s", $columns, $email, false);
         $names = $retrieve->checker();
         return $names;
@@ -228,6 +237,24 @@ class User extends newUser
     // }
 }
 
+class Posting
+{
+    public function newPost($subject, $body)
+    {
+        session_start();
+        echo $_SESSION['userID'];
+        $values =  [$_SESSION["userID"], $subject, $body];
+        $columns = "user_ID, subject, post";
+        $writePost = new SQL(6, "discussion", "iss", $columns, $values, false);
+        $writePost->checker();
+        if ($writePost) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 
 class Sessions
 {
@@ -249,7 +276,8 @@ class Sessions
         $this->stopSession();
         $this->startSession();
         $_SESSION["username"] = $user[0];
-        $_SESSION["email"] = $user[1];
+        $_SESSION["userID"] = $user[1];
+        $_SESSION["email"] = $user[2];
         $_SESSION["level"] = $level;
     }
 }

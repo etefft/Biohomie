@@ -34,6 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $loggedOut = new Sessions();
         $loggedOut->stopSession();
         header("Location: ../index.php?input=login");
+    } elseif (isset($_POST['new-post'])) {
+        $post = new Posting();
+        $post->newPost($_POST['subject-post'], $_POST['body-post']);
+        if ($post) {
+            header("Location: ../dashboard/index.php?dash=post-success");
+        } else {
+            header("Location: ../dashboard/index.php?dash=post-failure");
+        }
     } else {
         if (isset($_POST["sign-up"])) {
             if (!$_POST["username"] || !$_POST["email"] || !$_POST["password"]) {

@@ -34,3 +34,24 @@ h1 {
     height: 100vh;
     padding-top: 100px;
 }
+
+#user-main {
+    display: flex;
+    margin-top: 50px;
+}
+
+#user-main ul {
+    list-style-type: none;
+}
+
+#dashboard-nav {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+}
+
+.dash-left {
+    width: 77%;
+    display: flex;
+    justify-content: center;
+}
