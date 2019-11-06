@@ -31,12 +31,14 @@
             case 'post-failure':
                 $post = false;
                 require('my-posts.php');
-            break;
+            break;                
 
             default:
                 require("forum.php");
                 break;
         }
+    } elseif (isset($_GET['post'])) {
+        require('post.php');
     } else {
         require("forum.php"); 
     }

@@ -85,12 +85,68 @@ class SQL
 
             case 6:
                 $query = "INSERT INTO $table ($columns) VALUES (?,?,?)";
-                echo $query;
                 $stmt = $conn->prepare($query);
                 $stmt->bind_param($valueType, $values[0], $values[1], $values[2]);
                 $stmt->execute();
                 return true;
                 break;
+
+            case 7: 
+                $a = $values[0];
+                $b = $values[1];
+                $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID LIMIT $a, $b";
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
+                echo "<div id='forum-whole'>";
+                while ($stmt->fetch()) {
+                    echo "<p class='forum-posts'>$dbusername: <a href='". APP_ROOT . '/dashboard/?post='. $dbdiscussion_ID . "' class='forum-subject'>$dbsubject</a> <span class='forum-body'>$dbpost</span> <br>Date: $dbtimestamp</p> <br>";     
+              }
+              echo "</div>";
+              break;
+
+              case 8:
+                $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID WHERE discussion.discussion_ID = $values";
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
+                echo "<div id='forum-whole'>";
+                while ($stmt->fetch()) {
+                    $_SESSION['discussion_ID'] = $dbdiscussion_ID;
+                    echo "<p class='forum-posts'>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp</p> <br>
+                    <div class='forum-comments'>";
+                    $stmt->close();
+                    $query = "SELECT comment.comments, user.username, comment.date_created  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
+                    $stmt = $conn->prepare($query);
+                    $stmt->execute();
+                    $stmt->bind_result($dbcomments, $dbusername, $dbcommentDate);
+                    while ($stmt->fetch()) {
+                        echo "<p class='forum-posts'>$dbusername: $dbcomments <br>Date: $dbcommentDate</p> <br>";     
+                    }
+                    echo "
+                    </div>
+                    <div class='forum-comment'>
+                    <p>Add a comment</p>
+                    <form action='". APP_ROOT . "/src/verify.php' method='post'>
+                    <input type='text' name='comment' class='forum-comment-input'>
+                    <button>Submit</button>
+                    </form>
+                    </div>
+                    ";  
+                       
+                }
+                echo "</div>";
+                break;
+
+              case 9:
+                $query = "INSERT INTO $table ($columns) VALUES (?,?,?)";
+                echo $query;
+                $text = $values[2];
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[0], $values[1], $values[2]);
+                $stmt->execute();
+                break;
+
                 
             default:
                 # code...
@@ -253,6 +309,35 @@ class Posting
             return false;
         }
     }
+
+
+    public function getPublicPosts($a, $b)
+    {
+        $limits = [$a, $b];
+        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp';
+        $getPost = new SQL(7, 'discussion', '', $columns, $limits, false);
+        $getPost->checker();
+    }
+
+    public function getSinglePost($post_ID)
+    {
+        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp';
+        $getPost = new SQL(8, 'discussion', '', $columns, $post_ID, false);
+        $getPost->checker();
+    }
+
+    public function postComment($comment, $discussion_ID, $user_ID)
+    {
+        $columns = 'user_ID, discussion_ID, comments';
+        $values = [$user_ID, $discussion_ID, $comment];
+        $postComment = new SQL(9, 'comment', 'iis', $columns, $values, false);
+        $postComment->checker();
+    }
+
+    // public function getUserPosts()
+    // {
+        
+    // }
 }
 
 

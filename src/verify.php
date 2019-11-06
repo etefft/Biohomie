@@ -42,6 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             header("Location: ../dashboard/index.php?dash=post-failure");
         }
+    } elseif (isset($_POST['comment'])) {
+        session_start();
+        $comment = new Posting();
+        $comment->postComment($_POST['comment'], $_SESSION['discussion_ID'], $_SESSION['userID']);
+        var_dump($_POST['comment'], $_SESSION['discussion_ID'], $_SESSION['userID']);
+        $id = $_SESSION['discussion_ID'];
+        header("Location: ../dashboard/?post=$id");
+
     } else {
         if (isset($_POST["sign-up"])) {
             if (!$_POST["username"] || !$_POST["email"] || !$_POST["password"]) {
