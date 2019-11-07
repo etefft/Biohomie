@@ -27,7 +27,7 @@
              <a class="dropdown-item" href="#">Creat New Post</a>
              <div class="dropdown-divider"></div>
              <form id="logged-nav" class="form-inline my-2 my-lg-0" method="post"
-               action="<?php echo htmlspecialchars("../src/verify.php");?>">
+               action="<?php echo APP_ROOT . htmlspecialchars("/src/verify.php");?>">
                <input type="hidden" name="logout">
                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
              </form>

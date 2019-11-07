@@ -32,7 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } elseif (isset($_POST["logout"])) {
         $loggedOut = new Sessions();
+        $loggedOut->startSession();
         $loggedOut->stopSession();
+        $_SESSION = [];
+        var_dump($_SESSION);
         header("Location: ../index.php?input=login");
     } elseif (isset($_POST['new-post'])) {
         $post = new Posting();

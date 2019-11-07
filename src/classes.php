@@ -353,6 +353,7 @@ class Sessions
         // $this->startSession();
         $_SESSION["level"] = "";
         session_destroy();
+        $_SESSION = [];
     }
 
     public function checkPermissions($level, $user)
