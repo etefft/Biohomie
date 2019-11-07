@@ -13,7 +13,7 @@
 
             case 'post':
                 require('create-post.php');
-                break;
+                break; 
 
             case 'my-posts':
                 require('my-posts.php');

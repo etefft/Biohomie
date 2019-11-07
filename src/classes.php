@@ -189,9 +189,7 @@ class newUser extends Sessions
             header("Location: ../dashboard/signup_verify.php");
         } else {
             header("Location: ../index.php?exist=true&input=signup");
-        }
-        
-       
+        }  
     }
 
     public function userExists($email)
@@ -351,7 +349,7 @@ class Sessions
 
     public function stopSession()
     {
-        $this->startSession();
+        // $this->startSession();
         $_SESSION["level"] = "";
         session_destroy();
     }
