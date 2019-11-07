@@ -186,7 +186,8 @@ class newUser extends Sessions
             $userSessions = [$username, $email];
             $this->startSession();
             $this->checkPermissions(100, $userSessions);
-            header("Location: ../dashboard/signup_verify.php");
+            // header("Location: ../dashboard/signup_verify.php");
+            header("Location: ../dashboard/");
         } else {
             header("Location: ../index.php?exist=true&input=signup");
         }  
