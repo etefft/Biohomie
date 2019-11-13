@@ -4,9 +4,6 @@
 
 
 <div id="login-form">
-    <?php
-        var_dump($_SESSION);
-    ?>
     <form action="<?php echo htmlspecialchars("src/verify.php");?>" method="post">
     <?php
         if (!empty($formErr)) {

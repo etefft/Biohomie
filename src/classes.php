@@ -113,15 +113,15 @@ class SQL
                 echo "<div id='forum-whole'>";
                 while ($stmt->fetch()) {
                     $_SESSION['discussion_ID'] = $dbdiscussion_ID;
-                    echo "<p class='forum-posts'>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp</p> <br>
+                    echo "<div class='forum-posts'><p>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp</p>". ($dbuser_ID === $_SESSION['userID']? " <button id='edit-post'>Edit</button><button id='delete'>Delete</button>" : "<button>Flag</button>" ). "</div> <br>
                     <div class='forum-comments'>";
                     $stmt->close();
-                    $query = "SELECT comment.comments, user.username, comment.date_created  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
+                    $query = "SELECT comment.comments, user.username, comment.date_created, user.user_ID  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
                     $stmt = $conn->prepare($query);
                     $stmt->execute();
-                    $stmt->bind_result($dbcomments, $dbusername, $dbcommentDate);
+                    $stmt->bind_result($dbcomments, $dbusername, $dbcommentDate, $dbcommentUserID);
                     while ($stmt->fetch()) {
-                        echo "<p class='forum-posts'>$dbusername: $dbcomments <br>Date: $dbcommentDate</p> <br>";     
+                        echo "<div class='forum-posts'<p>$dbusername: $dbcomments <br>Date: $dbcommentDate</p>" . ($dbcommentUserID === $_SESSION['userID']? " <button id='edit-post'>Edit</button><button id='delete'>Delete</button>" : "<button>Flag</button>" ) . " </div> <br>";     
                     }
                     echo "
                     </div>

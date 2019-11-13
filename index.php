@@ -4,7 +4,7 @@
     require("src/home.php"); 
     require("includes/header.php"); 
 ?>
-<h3>Our content will go here</h3>
+<!-- <h3>Our content will go here</h3> -->
 
 <?php
 if(!empty($_GET)) {
