@@ -63,5 +63,13 @@ $(function () {
         }
     })
 
+    $('.edit-post').on('click',  function () {
+        // alert('this is clicked');
+        let clickedBtnID = $(this).attr('id');
+        let editText = $(`#${clickedBtnID}`).val();
+        $(this).parent().html(`<textarea cols='400' row='100'>${$(this).siblings('p').children('.post-body').text()}</textarea>`);
+        
+    })
+0
 
 });
