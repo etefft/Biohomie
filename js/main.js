@@ -29,9 +29,9 @@ $(function () {
                         uname = true;
                         if ($('#sign-up-password').val() == $('#sign-up-password-check').val() && !$('#sign-up-password').val() == "") {
                             $('#sign-up-submit').prop('disabled', false);
-                        } else{
+                        } else {
                             $('#sign-up-submit').prop('disabled', true);
-                        } 
+                        }
                     } else {
                         uname = false;
                         $('#user-exists').html('Username Taken');
@@ -63,13 +63,77 @@ $(function () {
         }
     })
 
-    $('.edit-post').on('click',  function () {
+    $('.forum-posts .edit-post').on('click', function () {
         // alert('this is clicked');
         let clickedBtnID = $(this).attr('id');
         let editText = $(`#${clickedBtnID}`).val();
-        $(this).parent().html(`<textarea cols='400' row='100'>${$(this).siblings('p').children('.post-body').text()}</textarea>`);
-        
+        let originalPost = $(this).parent().html();
+        $(this).parent().html(`
+        <form action="../src/verify.php" method="post">
+        <input type="hidden" name="post-id" value="${clickedBtnID}"/>
+        <textarea name="edit-post" cols='400' row='100'>${$(this).siblings('p').children('.post-body').text()}</textarea><br><button type="submit">Submit</button>
+        </form>
+        <button id="cancel-edit-post">Cancel</button>
+        `);
+        $('#cancel-edit-post').on('click', function () {
+
+            location.reload();
+        });
     })
-0
+
+    $('.forum-posts-comments .edit-post').on('click', function () {
+        // alert('this is clicked');
+        let clickedBtnID = $(this).attr('id');
+        let clickedBtnClass = $(this).attr('class');
+        let editText = $(`#${clickedBtnID}`).val();
+        let originalPost = $(this).parent().html();
+        $(this).parent().html(`
+        <form action="../src/verify.php" method="post">
+        <input type="hidden" name="comment-id" value="${clickedBtnID}"/>
+        <input type="hidden" name="post-id" value="${clickedBtnClass}"/>
+        <textarea name="edit-comment" cols='400' row='100'>${$(this).siblings('p').children('.comment-body').text()}</textarea><br><button type="submit">Submit</button>
+        </form>
+        <button id="cancel-edit-post">Cancel</button>
+        `);
+        $('#cancel-edit-post').on('click', function () {
+
+            location.reload();
+        });
+    })
+
+    $('.forum-posts-comments .delete-comment').on('click', function () {
+        let clickedBtnID = $(this).attr('id');
+        let clickedBtnClass = $(this).attr('class');
+        $('#myModal').modal('toggle');
+        $('#confirm-delete').on('click', function () {
+            console.log("this part worked post");
+            $.post("../src/verify.php", {
+                    delete_comment: true,
+                    comment_id: clickedBtnID,
+                    post_id: clickedBtnClass
+                })
+                .done(function (data) {
+                    location.reload();
+                });
+        })
+    })
+
+    $('.forum-posts .delete-post').on('click', function () {
+        let clickedBtnID = $(this).attr('id');
+        let clickedBtnClass = $(this).attr('class');
+        $('#myModal').modal('toggle');
+        $('#confirm-delete').on('click', function () {
+            console.log("this part worked post");
+
+            $.post("../src/verify.php", {
+                    delete_post: true,
+                    post_id: clickedBtnID
+                })
+                .done(function (data) {
+                    window.location.replace("index?dash=forum");
+                });
+        })
+    })
+
 
 });

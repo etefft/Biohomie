@@ -94,7 +94,7 @@ class SQL
             case 7: 
                 $a = $values[0];
                 $b = $values[1];
-                $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID LIMIT $a, $b";
+                $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID ORDER BY timestamp DESC LIMIT $a, $b";
                 $stmt = $conn->prepare($query);
                 $stmt->execute();
                 $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
@@ -109,19 +109,19 @@ class SQL
                 $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID WHERE discussion.discussion_ID = $values";
                 $stmt = $conn->prepare($query);
                 $stmt->execute();
-                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
+                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp, $dbpostEdited);
                 echo "<div id='forum-whole'>";
                 while ($stmt->fetch()) {
                     $_SESSION['discussion_ID'] = $dbdiscussion_ID;
-                    echo "<div class='forum-posts'><p>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp</p>". ($dbuser_ID === $_SESSION['userID'] ? "<button class='edit-post' id='discussion-$dbdiscussion_ID'>Edit</button><button id='delete'>Delete</button>" : "<button>Flag</button>" ). "</div> <br>
+                    echo "<div class='forum-posts'><p>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp " . ($dbpostEdited === NULL ? "" : "<br>Edited on: $dbpostEdited") . "</p>". ($dbuser_ID === $_SESSION['userID'] ? "<button class='edit-post' id='discussion-$dbdiscussion_ID'>Edit</button><button id='delete-discussion-$dbdiscussion_ID' class='delete-post'>Delete</button>" : "<button>Flag</button>" ). "</div> <br>
                     <div class='forum-comments'>";
                     $stmt->close();
-                    $query = "SELECT comment.comment_ID, comment.comments, user.username, comment.date_created, user.user_ID  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
+                    $query = "SELECT comment.comment_ID, comment.comments, user.username, comment.date_created, user.user_ID, comment.comment_edited  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
                     $stmt = $conn->prepare($query);
                     $stmt->execute();
-                    $stmt->bind_result($dbcommentID, $dbcomments, $dbusername, $dbcommentDate, $dbcommentUserID);
+                    $stmt->bind_result($dbcommentID, $dbcomments, $dbusername, $dbcommentDate, $dbcommentUserID, $dbcommentEdited);
                     while ($stmt->fetch()) {
-                        echo "<div class='forum-posts'<p>$dbusername: $dbcomments <br>Date: $dbcommentDate</p>" . ($dbcommentUserID === $_SESSION['userID']? " <button class='edit-post' id='comment-$dbcommentID'>Edit</button><button id='delete'>Delete</button>" : "<button>Flag</button>" ) . " </div> <br>";     
+                        echo "<div class='forum-posts-comments'><p>$dbusername: <span class='comment-body'>$dbcomments</span> <br>Date: $dbcommentDate" . ($dbcommentEdited === NULL ? "" : "<br>Edited on: $dbcommentEdited") . "</p>" . ($dbcommentUserID === $_SESSION['userID']? " <button class='edit-post discussion-$dbdiscussion_ID' id='comment-$dbcommentID'>Edit</button><button id='delete-comment-$dbcommentID' class='delete-comment delete-discussion-$dbdiscussion_ID'>Delete</button>" : "<button>Flag</button>" ) . " </div> <br>";      
                     }
                     echo "
                     </div>
@@ -147,6 +147,40 @@ class SQL
                 $stmt->execute();
                 break;
 
+            case 10:
+                $query = "UPDATE $table SET $columns = ?, discussion_edited = CURRENT_TIMESTAMP WHERE discussion_ID = ? AND user_ID = ?";
+                echo $query;
+                var_dump($values);
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[2], $values[1], $values[0]);
+                $stmt->execute();
+
+                break;
+
+                // $values = [$user_ID, $discussion_ID, $comment_ID, $edit_comment]
+            case 11:
+                $query = "UPDATE $table SET $columns = ?, comment_edited = CURRENT_TIMESTAMP WHERE discussion_ID = ? AND comment_ID = ? AND user_ID = ?";
+                echo $query;
+                var_dump($values);
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[3], $values[1], $values[2], $values[0]);
+                $stmt->execute();
+    
+                break;
+
+            case 12:
+                $query = "DELETE FROM $table WHERE user_ID = ? AND discussion_ID = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[1], $values[0]); 
+                $stmt->execute();
+            break;
+
+            case 13:
+                $query = "DELETE FROM $table WHERE user_ID = ? AND discussion_ID = ? AND comment_ID = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[2], $values[0], $values[1]);
+                $stmt->execute();
+            break;
                 
             default:
                 # code...
@@ -320,7 +354,7 @@ class Posting
 
     public function getSinglePost($post_ID)
     {
-        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp';
+        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp, discussion.discussion_edited';
         $getPost = new SQL(8, 'discussion', '', $columns, $post_ID, false);
         $getPost->checker();
     }
@@ -331,6 +365,38 @@ class Posting
         $values = [$user_ID, $discussion_ID, $comment];
         $postComment = new SQL(9, 'comment', 'iis', $columns, $values, false);
         $postComment->checker();
+    }
+
+    public function editPost($edit_post, $discussion_ID, $user_ID)
+    {
+        $columns = 'post';
+        $values = [$user_ID, $discussion_ID, $edit_post];
+        $editPost = new SQL(10, 'discussion', 'ssi', $columns, $values, false);
+        $editPost->checker();
+    }
+
+    public function editComment($edit_comment, $discussion_ID, $comment_ID, $user_ID)
+    {
+        $columns = 'comments';
+        $values = [$user_ID, $discussion_ID, $comment_ID, $edit_comment];
+        $editPost = new SQL(11, 'comment', 'sssi', $columns, $values, false);
+        $editPost->checker();
+    }
+    
+    public function deletePost($discussion_ID, $user_ID)
+    {
+        $columns = "";
+        $values = [$discussion_ID, $user_ID];
+        $deletePost = new SQL(12, 'discussion', 'is', $columns, $values, false);
+        $deletePost->checker();
+    }
+
+    public function deleteComment($discussion_ID, $comment_ID, $user_ID)
+    {
+        $columns = "";
+        $values = [$discussion_ID, $comment_ID, $user_ID];
+        $deleteComment = new SQL(13, 'comment', 'iss', $columns, $values, false);
+        $deleteComment->checker();
     }
 
     // public function getUserPosts()

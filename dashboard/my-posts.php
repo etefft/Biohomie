@@ -9,8 +9,8 @@
                 echo 'Their was an issue with your post.';
             }
         }
-    
-    echo "my post"; ?>
+        
+     ?>
 </div>
 
 </div>

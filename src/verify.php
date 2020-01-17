@@ -1,7 +1,3 @@
-<!-- PAGE INFO -->
-
-<!-- This page does NOT correlate with a landing page, it is for verifying any code that is put into an input box and then sending the User to the appropriate page -->
-
 <?php
 require(realpath( dirname( __FILE__ ) ) . '\..\config\config.php' );
 require("classes.php");
@@ -14,6 +10,8 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
+// test to see if page is correct
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,6 +51,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_SESSION['discussion_ID'];
         header("Location: ../dashboard/?post=$id");
 
+    } elseif (isset($_POST['edit-post'])) {
+        session_start();
+        $edit_post = test_input($_POST['edit-post']);
+        $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post-id']));
+        $user_id = $_SESSION['userID'];
+        $edit_submit = new Posting();
+        $edit_submit->editPost($edit_post, $post_id, $user_id);
+        header("Location: ../dashboard/?post=$post_id");
+
+    } elseif (isset($_POST['edit-comment'])) {
+        session_start();
+        $edit_comment = test_input($_POST['edit-comment']);
+        $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post-id']));
+        $comment_id = preg_replace("/[^0-9]/", "", test_input($_POST['comment-id']));
+        $user_id = $_SESSION['userID'];
+        $edit_submit = new Posting();
+        $edit_submit->editComment($edit_comment, $post_id, $comment_id, $user_id);
+        header("Location: ../dashboard/?post=$post_id");
+
+    } elseif (isset($_POST['delete_comment'])) { 
+        // comments
+        session_start();
+        $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post_id']));
+        $comment_id = preg_replace("/[^0-9]/", "", test_input($_POST['comment_id']));
+        echo $comment_id;
+        echo $post_id;
+        $user_id = $_SESSION['userID']; 
+        $edit_submit = new Posting();
+        $edit_submit->deleteComment($post_id, $comment_id, $user_id);
+    }  elseif (isset($_POST['delete_post'])) {
+        // test for posts
+        session_start();
+        $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post_id']));
+        echo $post_id;
+        $user_id = $_SESSION['userID'];
+        $edit_submit = new Posting();
+        $edit_submit->deletePost($post_id, $user_id);
     } else {
         if (isset($_POST["sign-up"])) {
             if (!$_POST["username"] || !$_POST["email"] || !$_POST["password"]) {
