@@ -18,8 +18,8 @@
                 require('my-posts.php');
                 break;
             
-            case 'settings':
-                require('settings.php');
+            case 'preferences':
+                require('preferences.php');
                 break;
 
             case 'post-success':
@@ -29,7 +29,7 @@
 
             case 'post-failure':
                 $post = false;
-                require('my-posts.php');
+                require('create-post.php');
             break;                
 
             default:

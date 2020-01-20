@@ -36,12 +36,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var_dump($_SESSION);
         header("Location: ../index.php?input=login");
     } elseif (isset($_POST['new-post'])) {
-        $post = new Posting();
-        $post->newPost($_POST['subject-post'], $_POST['body-post']);
+        $uploadOk = 0;
+        $errorMsg = "";
+        $url_images = ["none"];
+        $images = 0;
+        $tags = [];
+        
+        if ($_FILES['fileToUpload']['name'][0] !== '') {
+            var_dump($_FILES['fileToUpload']['name']);
+            $images = 1;
+            require('image-check.php');
+            $url_images = array_unique($url_images);
+            var_dump($url_images);
+        } else {
+            $url = "none";
+            $uploadOk = 1;
+        }
+
+        if (isset($_POST['tag'])) {
+            $tags = explode(',', $_POST['tag']);
+        }
+        if ($uploadOk) {
+            if (!empty($_POST['subject-post']) && !empty($_POST['body-post'])) {
+                $post = new Posting();
+                $discussionID = $post->newPost($_POST['subject-post'], $_POST['body-post'], $images);
+                $tagUpload = new Posting();
+                $tagUpload->addTags($discussionID, $tags);
+                if ($images) {
+                    $addImageDb = new Posting;
+                    $addImageDb->addImages($discussionID, $url_images);
+                }
+            } else {
+                $errorMsg = 5;
+            }
+        }
+                
         if ($post) {
             header("Location: ../dashboard/index.php?dash=post-success");
         } else {
-            header("Location: ../dashboard/index.php?dash=post-failure");
+            header("Location: ../dashboard/index.php?dash=post-failure&failure-code=". $errorMsg);
         }
     } elseif (isset($_POST['comment'])) {
         session_start();

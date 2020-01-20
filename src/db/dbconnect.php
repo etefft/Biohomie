@@ -6,13 +6,13 @@
 //$password = "";
 
 //Localhost connection
-$servername = "localhost";
-$dbusername = "root";
-$password = "";
+$servernameMain = "localhost";
+$dbusernameMain = "root";
+$passwordMain = "";
 
 //DB name
-$dbname = "biohomie"; 
+$dbnameMain = "biohomie"; 
 
-$conn = new mysqli($servername, $dbusername, $password, $dbname);
+$conn = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
 
 ?>

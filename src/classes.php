@@ -84,11 +84,20 @@ class SQL
                 }
 
             case 6:
-                $query = "INSERT INTO $table ($columns) VALUES (?,?,?)";
+                $query = "INSERT INTO $table ($columns) VALUES (?,?,?,?)";
+                echo $query;
+                var_dump($values);
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param($valueType, $values[0], $values[1], $values[2]);
+                $stmt->bind_param($valueType, $values[0], $values[1], $values[2], $values[3]);
                 $stmt->execute();
-                return true;
+
+                $query = "SELECT discussion_ID FROM discussion WHERE user_ID = ? AND subject = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('is', $values[0], $values[1]);
+                $stmt->execute();
+                $stmt->bind_result($dbdiscussion_ID);
+                $stmt->fetch();
+                return $dbdiscussion_ID;
                 break;
 
             case 7: 
@@ -97,12 +106,38 @@ class SQL
                 $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID ORDER BY timestamp DESC LIMIT $a, $b";
                 $stmt = $conn->prepare($query);
                 $stmt->execute();
-                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
+                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp, $dbimgURL);
                 echo "<div id='forum-whole'>";
+                include('../includes/search.php');
                 while ($stmt->fetch()) {
-                    echo "<p class='forum-posts'>$dbusername: <a href='". APP_ROOT . '/dashboard/?post='. $dbdiscussion_ID . "' class='forum-subject'>$dbsubject</a> <span class='forum-body'>$dbpost</span> <br>Date: $dbtimestamp</p> <br>";     
+                    echo "<div class='forum-posts'>$dbusername: <a href='". APP_ROOT . '/dashboard/?post='. $dbdiscussion_ID . "' class='forum-subject'>$dbsubject</a> <span class='forum-body'>$dbpost</span> <br>Date: $dbtimestamp <br><span>Tags: ";
+                    $query2 = "SELECT tag.tag_word FROM tag JOIN discussion ON discussion.discussion_ID = tag.discussion_ID WHERE discussion.discussion_ID = $dbdiscussion_ID";
+                    // echo $dbdiscussion_ID;
+                    $conn2 = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
+                    $stmt2 = $conn2->prepare($query2);
+                    $stmt2->execute();
+                    $stmt2->bind_result($dbtabwords);
+                    $tags_used = "";
+                    while ($stmt2->fetch()) {
+                        $tags_used = $tags_used . $dbtabwords . ", ";
+                    }  
+                    echo rtrim($tags_used, ', ') . "</span><div class='images-post gallery'>";
+                    $query3 = "SELECT image.image_url FROM image JOIN discussion ON discussion.discussion_ID = image.discussion_ID WHERE discussion.discussion_ID = $dbdiscussion_ID";
+                    $conn3 = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
+                    $stmt3 = $conn3->prepare($query3);
+                    $stmt3->execute();
+                    $stmt3->bind_result($dbimages);
+                    while ($stmt3->fetch()) {
+                        echo "<a href='$dbimages'><img src='$dbimages'/></a>";
+                    }
+                    echo "</div></div><br>";
+                    //  if ($dbimgURL !== "none") {
+                    //      foreach ($dbimgURL as $key => $value) {
+                    //          echo "<img src='$value' />";
+                    //      }
+                         
+                    //  }     
               }
-              echo "</div>";
               break;
 
               case 8:
@@ -113,7 +148,20 @@ class SQL
                 echo "<div id='forum-whole'>";
                 while ($stmt->fetch()) {
                     $_SESSION['discussion_ID'] = $dbdiscussion_ID;
-                    echo "<div class='forum-posts'><p>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp " . ($dbpostEdited === NULL ? "" : "<br>Edited on: $dbpostEdited") . "</p>". ($dbuser_ID === $_SESSION['userID'] ? "<button class='edit-post' id='discussion-$dbdiscussion_ID'>Edit</button><button id='delete-discussion-$dbdiscussion_ID' class='delete-post'>Delete</button>" : "<button>Flag</button>" ). "</div> <br>
+                    echo "<div class='forum-posts'><div>$dbusername: <span class='forum-subject'>$dbsubject</span> <span class='post-body'>$dbpost</span> <br>Date: $dbtimestamp " . ($dbpostEdited === NULL ? "" : "<br>Edited on: $dbpostEdited") . "</div>";
+                    
+                    echo "<div class='images-comments gallery'>";
+                    $query3 = "SELECT image.image_url FROM image JOIN discussion ON discussion.discussion_ID = image.discussion_ID WHERE discussion.discussion_ID = $dbdiscussion_ID";
+                    $conn3 = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
+                    $stmt3 = $conn3->prepare($query3);
+                    $stmt3->execute();
+                    $stmt3->bind_result($dbimages);
+                    while ($stmt3->fetch()) {
+                        echo "<a href='$dbimages'><img src='$dbimages'/></a>";
+                    }
+                    echo "</div><br>";
+                    
+                    echo ($dbuser_ID === $_SESSION['userID'] ? "<button class='edit-post' id='discussion-$dbdiscussion_ID'>Edit</button><button id='delete-discussion-$dbdiscussion_ID' class='delete-post'>Delete</button>" : "" ). "</div> <br>
                     <div class='forum-comments'>";
                     $stmt->close();
                     $query = "SELECT comment.comment_ID, comment.comments, user.username, comment.date_created, user.user_ID, comment.comment_edited  FROM comment JOIN user ON comment.user_ID = user.user_ID WHERE comment.discussion_ID = $dbdiscussion_ID ORDER BY comment.date_created ASC";
@@ -121,7 +169,7 @@ class SQL
                     $stmt->execute();
                     $stmt->bind_result($dbcommentID, $dbcomments, $dbusername, $dbcommentDate, $dbcommentUserID, $dbcommentEdited);
                     while ($stmt->fetch()) {
-                        echo "<div class='forum-posts-comments'><p>$dbusername: <span class='comment-body'>$dbcomments</span> <br>Date: $dbcommentDate" . ($dbcommentEdited === NULL ? "" : "<br>Edited on: $dbcommentEdited") . "</p>" . ($dbcommentUserID === $_SESSION['userID']? " <button class='edit-post discussion-$dbdiscussion_ID' id='comment-$dbcommentID'>Edit</button><button id='delete-comment-$dbcommentID' class='delete-comment delete-discussion-$dbdiscussion_ID'>Delete</button>" : "<button>Flag</button>" ) . " </div> <br>";      
+                        echo "<div class='forum-posts-comments'><div>$dbusername: <span class='comment-body'>$dbcomments</span> <br>Date: $dbcommentDate" . ($dbcommentEdited === NULL ? "" : "<br>Edited on: $dbcommentEdited") . "</div>" . ($dbcommentUserID === $_SESSION['userID']? " <button class='edit-post discussion-$dbdiscussion_ID' id='comment-$dbcommentID'>Edit</button><button id='delete-comment-$dbcommentID' class='delete-comment delete-discussion-$dbdiscussion_ID'>Delete</button>" : "<button>Flag</button>" ) . " </div> <br>";      
                     }
                     echo "
                     </div>
@@ -181,6 +229,49 @@ class SQL
                 $stmt->bind_param($valueType, $values[2], $values[0], $values[1]);
                 $stmt->execute();
             break;
+
+            case 14: 
+                $a = $values[0];
+                $b = $values[1];
+                $userID = $values[2];
+                $query = "SELECT $columns FROM $table JOIN user ON discussion.user_ID = user.user_ID WHERE discussion.user_ID = $userID ORDER BY timestamp DESC LIMIT $a, $b";
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+                $stmt->bind_result($dbdiscussion_ID, $dbuser_ID, $dbusername, $dbsubject, $dbpost, $dbcomment_ID, $dbtimestamp);
+                echo "<div id='forum-whole'>";
+                while ($stmt->fetch()) {
+                    echo "<div class='forum-posts'>$dbusername: <a href='". APP_ROOT . '/dashboard/?post='. $dbdiscussion_ID . "' class='forum-subject'>$dbsubject</a> <span class='forum-body'>$dbpost</span> <br>Date: $dbtimestamp <br><span>Tags: ";
+                    $query2 = "SELECT tag.tag_word FROM tag JOIN discussion ON discussion.discussion_ID = tag.discussion_ID WHERE discussion.discussion_ID = $dbdiscussion_ID";
+                    // echo $dbdiscussion_ID;
+                    $conn2 = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
+                    $stmt2 = $conn2->prepare($query2);
+                    $stmt2->execute();
+                    $stmt2->bind_result($dbtabwords);
+                    $tags_used = "";
+                    while ($stmt2->fetch()) {
+                        $tags_used = $tags_used . $dbtabwords . ", ";
+                    }  
+                    echo rtrim($tags_used, ', ') . "</span><div class='images-post gallery'>";
+                    $query3 = "SELECT image.image_url FROM image JOIN discussion ON discussion.discussion_ID = image.discussion_ID WHERE discussion.discussion_ID = $dbdiscussion_ID";
+                    $conn3 = new mysqli($servernameMain, $dbusernameMain, $passwordMain, $dbnameMain);
+                    $stmt3 = $conn3->prepare($query3);
+                    $stmt3->execute();
+                    $stmt3->bind_result($dbimages);
+                    while ($stmt3->fetch()) {
+                        echo "<a href='$dbimages'><img src='$dbimages'/></a>";
+                    }
+                    echo "</div></div><br>";
+                }
+              break;
+
+              case 15:
+                $query = "INSERT INTO $table ($columns) VALUES (?,?)";
+                echo $query;
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param($valueType, $values[0], $values[1]);
+                $stmt->execute();
+                break;
+            
                 
             default:
                 # code...
@@ -328,18 +419,38 @@ class User extends newUser
 
 class Posting
 {
-    public function newPost($subject, $body)
+    public function newPost($subject, $body, $url)
     {
         session_start();
-        echo $_SESSION['userID'];
-        $values =  [$_SESSION["userID"], $subject, $body];
-        $columns = "user_ID, subject, post";
-        $writePost = new SQL(6, "discussion", "iss", $columns, $values, false);
-        $writePost->checker();
-        if ($writePost) {
-            return true;
-        } else {
-            return false;
+        $values =  [$_SESSION["userID"], $subject, $body, $url];
+        $columns = "user_ID, subject, post, images";
+        $writePost = new SQL(6, "discussion", "isss", $columns, $values, false);
+        return $writePost->checker();
+        // if ($writePost) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+    }
+
+    public function addTags($discussion_ID, $tags)
+    {
+
+        foreach ($tags as $key => $value) {
+            $values =  [$discussion_ID, $tags[$key]];
+            $columns = "discussion_ID, tag_word";
+            $addTags = new SQL(15, "tag", "is", $columns, $values, false);
+            $addTags->checker();
+        }
+    }
+
+    public function addImages($discussion_ID, $url_images)
+    {
+        foreach ($url_images as $key => $value) {
+            $values =  [$discussion_ID, $url_images[$key]];
+            $columns = "discussion_ID, image_url";
+            $addTags = new SQL(15, "image", "is", $columns, $values, false);
+            $addTags->checker();
         }
     }
 
@@ -347,7 +458,7 @@ class Posting
     public function getPublicPosts($a, $b)
     {
         $limits = [$a, $b];
-        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp';
+        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp, discussion.images';
         $getPost = new SQL(7, 'discussion', '', $columns, $limits, false);
         $getPost->checker();
     }
@@ -399,10 +510,13 @@ class Posting
         $deleteComment->checker();
     }
 
-    // public function getUserPosts()
-    // {
-        
-    // }
+    public function getUserPosts($a, $b)
+    {
+        $values = [$a, $b, $_SESSION['userID']];
+        $columns = 'discussion.discussion_ID, discussion.user_ID, user.username, discussion.subject, discussion.post, discussion.comment_ID, discussion.timestamp';
+        $getPost = new SQL(14, 'discussion', '', $columns, $values, false);
+        $getPost->checker();
+    }
 }
 
 

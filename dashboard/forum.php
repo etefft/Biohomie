@@ -21,3 +21,4 @@ $retrievePosts->getPublicPosts(0, 100);
 </div>
 
 </div>
+</div>
