@@ -1,7 +1,8 @@
 <div id="search">
-  <form action="<?php echo htmlspecialchars("src/verify.php");?>" method="post">
+  <form action="<?php echo htmlspecialchars("index.php");?>" method="get">
     <h3>Search BioHomie</h3>
-    <input type="text" name="search" id="">
+    <input type="hidden" name="dash" value="searched">
+    <input type="text" name="search-forum" id="">
     <button type="submit">Search</button>
 </form>
   </div>

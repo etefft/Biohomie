@@ -7,6 +7,15 @@ h4{
     color: brown;
 }
 
+#profile-picture {
+    height: 30px;
+    margin: 10px;
+}
+
+#preferences-picture {
+    height: 200px;
+}
+
 form {
     display: flex;
     flex-direction: column;

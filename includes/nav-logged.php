@@ -34,6 +34,7 @@
            </div>
          </li>
        </ul>
+       <img id="profile-picture" src="<?php echo $_SESSION["profile-picture"]; ?>" alt="">
        <?php echo $_SESSION["username"]; ?>
 
      </div>

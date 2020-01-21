@@ -30,7 +30,11 @@
             case 'post-failure':
                 $post = false;
                 require('create-post.php');
-            break;                
+            break; 
+            
+            case 'searched':
+                require('searched.php');
+            break;
 
             default:
                 require("forum.php");

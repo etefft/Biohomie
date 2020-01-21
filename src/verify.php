@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $tagUpload->addTags($discussionID, $tags);
                 if ($images) {
                     $addImageDb = new Posting;
-                    $addImageDb->addImages($discussionID, $url_images);
+                    $addImageDb->addImages($discussionID, $url_images, false);
                 }
             } else {
                 $errorMsg = 5;
@@ -121,6 +121,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_id = $_SESSION['userID'];
         $edit_submit = new Posting();
         $edit_submit->deletePost($post_id, $user_id);
+    } elseif (isset($_POST['profile-picture-upload'])) {
+        $errorMsg = "";
+        $uploadOk = "";
+        if ($_FILES['fileToUpload']['name'][0] !== '') {
+            var_dump($_FILES['fileToUpload']);
+            $images = 1;
+            require('profile-check.php');
+            // $url_images = array_unique($url_images);
+            var_dump($url_images);
+        } else {
+            $uploadOk = 0;
+            $errorMsg = 6;
+            
+        }
+
+        if ($uploadOk) {
+            $addImageDb = new Posting;
+            $addImageDb->addImages(0, $url_images, 1);
+            header("Location: ../dashboard/index.php?dash=preferences&success=true");
+        } else {
+            header("Location: ../dashboard/index.php?dash=preferences&failure-code=". $errorMsg);
+        }
+
     } else {
         if (isset($_POST["sign-up"])) {
             if (!$_POST["username"] || !$_POST["email"] || !$_POST["password"]) {
