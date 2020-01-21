@@ -1,5 +1,5 @@
 <?php
-require(realpath( dirname( __FILE__ ) ) . '\..\config\config.php' );
+require('../config/config.php' );
 require("classes.php");
 
 $usernameExists;
@@ -11,17 +11,11 @@ function test_input($data) {
     return $data;
 }
 
-// test to see if page is correct
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    //checks to see if its a login attempt or a sign-up. Login has a hidden input of login.
     if (isset($_POST["login"])) {
         if (!$_POST["email"] || !$_POST["password"]) {
             header("Location: ../index.php?empty=true&input=login");
         } else {
-            // validates the code if the variables are not empty
             $email = test_input($_POST["email"]);
             $password = test_input($_POST["password"]);
             $user = new User($email, $password);
@@ -33,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $loggedOut->startSession();
         $loggedOut->stopSession();
         $_SESSION = [];
-        var_dump($_SESSION);
         header("Location: ../index.php?input=login");
     } elseif (isset($_POST['new-post'])) {
         $uploadOk = 0;
@@ -43,12 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tags = [];
         
         if ($_FILES['fileToUpload']['name'][0] !== '') {
-            var_dump($_FILES['fileToUpload']['name']);
             $images = 1;
             require('image-check.php');
             $url_images = array_unique($url_images);
-            var_dump($url_images);
         } else {
+
             $url = "none";
             $uploadOk = 1;
         }
@@ -80,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $comment = new Posting();
         $comment->postComment($_POST['comment'], $_SESSION['discussion_ID'], $_SESSION['userID']);
-        var_dump($_POST['comment'], $_SESSION['discussion_ID'], $_SESSION['userID']);
         $id = $_SESSION['discussion_ID'];
         header("Location: ../dashboard/?post=$id");
 
@@ -108,8 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post_id']));
         $comment_id = preg_replace("/[^0-9]/", "", test_input($_POST['comment_id']));
-        echo $comment_id;
-        echo $post_id;
         $user_id = $_SESSION['userID']; 
         $edit_submit = new Posting();
         $edit_submit->deleteComment($post_id, $comment_id, $user_id);
@@ -117,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // test for posts
         session_start();
         $post_id = preg_replace("/[^0-9]/", "", test_input($_POST['post_id']));
-        echo $post_id;
         $user_id = $_SESSION['userID'];
         $edit_submit = new Posting();
         $edit_submit->deletePost($post_id, $user_id);
@@ -125,11 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errorMsg = "";
         $uploadOk = "";
         if ($_FILES['fileToUpload']['name'][0] !== '') {
-            var_dump($_FILES['fileToUpload']);
             $images = 1;
             require('profile-check.php');
             // $url_images = array_unique($url_images);
-            var_dump($url_images);
         } else {
             $uploadOk = 0;
             $errorMsg = 6;
@@ -143,6 +129,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             header("Location: ../dashboard/index.php?dash=preferences&failure-code=". $errorMsg);
         }
+
+    } elseif (isset($_POST["change-pass"])) {
+        session_start();
+        $passUpdate = new Options;
+        $passUpdate->changePassword($_SESSION["userID"], $_POST["current-password"], $_POST["password-verify"]);
 
     } else {
         if (isset($_POST["sign-up"])) {

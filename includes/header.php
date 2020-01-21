@@ -1,8 +1,6 @@
-   <!-- PAGE INFO -->
-
-   <!-- This page contains any code that will be on the Header of any page unless a separate header is needed and created -->
    <?php 
-        require(realpath( dirname( __FILE__ ) ) . '\..\config\config.php' );
+   $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+        require( "$root/Biohomie/config/config.php" );
     ?>
 
    <!DOCTYPE html>

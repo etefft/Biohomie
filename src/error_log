@@ -1,0 +1,575 @@
+[20-Jan-2020 21:08:55 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[20-Jan-2020 21:08:55 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[20-Jan-2020 21:08:55 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[20-Jan-2020 21:09:03 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[20-Jan-2020 21:09:03 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[20-Jan-2020 21:09:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefftdcddf', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[20-Jan-2020 21:09:05 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[20-Jan-2020 21:09:05 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[20-Jan-2020 21:09:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'eteff', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 05:52:46 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 05:52:46 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 05:52:46 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home1/bpa2019bh/public_html/src\..\config\config.php' (include_path='.:/opt/php71/lib/php') in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 05:52:47 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 05:52:47 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 05:52:47 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home1/bpa2019bh/public_html/src\..\config\config.php' (include_path='.:/opt/php71/lib/php') in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 09:53:38 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[21-Jan-2020 09:53:38 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:53:38 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', '', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:53:40 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[21-Jan-2020 09:53:40 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:53:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:54:03 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 16
+[21-Jan-2020 09:54:03 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:54:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:55:13 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:55:13 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:55:13 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:01 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:01 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:01 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:03 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:03 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft90', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:05 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:05 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etefft90 ', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:07 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:07 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etef', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:08 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:08 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'etef', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:13 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:13 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:13 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', '', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:16 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:16 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:16 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'tefft', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:17 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:17 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', 'tefft ', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:19 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:56:19 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 75
+[21-Jan-2020 09:56:19 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:76
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(5, 'user', 's', 'username', '', false)
+#1 /home1/bpa2019bh/public_html/src/username-checker.php(9): SQL->checker()
+#2 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 76
+[21-Jan-2020 09:56:35 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 09:56:35 America/Chicago] PHP Warning:  require(/home1/bpa2019bh/public_html/src\..\config\config.php): failed to open stream: No such file or directory in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 09:56:35 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home1/bpa2019bh/public_html/src\..\config\config.php' (include_path='.:/opt/php71/lib/php') in /home1/bpa2019bh/public_html/src/verify.php on line 2
+[21-Jan-2020 09:57:45 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:57:45 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 09:57:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 09:58:08 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:58:08 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 09:58:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 09:58:12 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:58:12 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 09:58:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 09:58:38 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/2005): Unknown MySQL server host 'http://biohomie.com' (0) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 09:58:38 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 09:58:38 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:00:46 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:00:46 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:00:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:00:48 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:00:48 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:00:48 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:05:46 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:05:46 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:05:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:05:47 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:05:47 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:05:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:05:51 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'root'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:05:51 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:05:51 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:12:20 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:12:20 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:12:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:13:08 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:13:08 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:13:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:15:15 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/2005): Unknown MySQL server host 'http://biohomie.com' (0) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:15:15 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:15:15 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:15:32 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:15:32 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:15:32 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:16:03 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:16:03 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:16:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:17:46 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ns8447.hostgator.com' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:17:46 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:17:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:19:32 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:19:32 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:19:32 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:22:12 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:22:12 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:22:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:22:14 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:22:14 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:22:14 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:23:56 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:23:56 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:23:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:23:57 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:23:57 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:23:57 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:23:58 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:23:58 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:23:58 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:23:58 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:24:07 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019b_etefft'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:24:07 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:24:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:24:27 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:24:27 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:24:27 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:47 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:47 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:48 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:48 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:48 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:49 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:50 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:26:51 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:26:51 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:26:51 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:28:36 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:28:36 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:28:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:28:39 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:28:39 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:28:39 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:31:36 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 17
+[21-Jan-2020 10:31:36 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:31:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:33:05 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh@localhost'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 18
+[21-Jan-2020 10:33:05 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:33:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:33:09 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh@localhost'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 18
+[21-Jan-2020 10:33:09 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:33:09 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:37:10 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh@localhost'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 18
+[21-Jan-2020 10:37:10 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:37:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:37:36 America/Chicago] PHP Warning:  mysqli::__construct(): (28000/1045): Access denied for user 'bpa2019bh'@'ecibd.com.eg' (using password: YES) in /home1/bpa2019bh/public_html/src/db/dbconnect.php on line 18
+[21-Jan-2020 10:37:36 America/Chicago] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home1/bpa2019bh/public_html/src/classes.php on line 42
+[21-Jan-2020 10:37:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home1/bpa2019bh/public_html/src/classes.php:43
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 43
+[21-Jan-2020 10:42:55 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home1/bpa2019bh/public_html/src/classes.php:45
+Stack trace:
+#0 /home1/bpa2019bh/public_html/src/classes.php(24): SQL->sqlStatement(2, 'user', 's', 'email', 'erich.tefft@gma...', false)
+#1 /home1/bpa2019bh/public_html/src/classes.php(370): SQL->checker()
+#2 /home1/bpa2019bh/public_html/src/classes.php(405): newUser->userExists('erich.tefft@gma...')
+#3 /home1/bpa2019bh/public_html/src/verify.php(27): User->__construct('erich.tefft@gma...', '123')
+#4 {main}
+  thrown in /home1/bpa2019bh/public_html/src/classes.php on line 45
+[21-Jan-2020 10:44:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:405) in /home1/bpa2019bh/public_html/src/classes.php on line 418
+[21-Jan-2020 10:45:00 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/bpa2019bh/public_html/src/classes.php:308) in /home1/bpa2019bh/public_html/src/classes.php on line 512
+[21-Jan-2020 10:45:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:308) in /home1/bpa2019bh/public_html/src/classes.php on line 361
+[21-Jan-2020 10:46:28 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:308) in /home1/bpa2019bh/public_html/src/classes.php on line 361
+[21-Jan-2020 10:48:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:274) in /home1/bpa2019bh/public_html/src/classes.php on line 354
+[21-Jan-2020 10:51:28 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:392) in /home1/bpa2019bh/public_html/src/classes.php on line 405
+[21-Jan-2020 11:03:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/verify.php:36) in /home1/bpa2019bh/public_html/src/verify.php on line 37
+[21-Jan-2020 11:09:37 America/Chicago] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home1/bpa2019bh/public_html/src/classes.php on line 601
+[21-Jan-2020 11:09:37 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home1/bpa2019bh/public_html/src/classes.php:601) in /home1/bpa2019bh/public_html/src/classes.php on line 594
+[21-Jan-2020 11:09:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/bpa2019bh/public_html/src/classes.php:601) in /home1/bpa2019bh/public_html/src/classes.php on line 398

@@ -55,7 +55,7 @@ $(function () {
 
     $('#sign-up-password-check').on('keyup', function () {
         if ($('#sign-up-password').val() == $('#sign-up-password-check').val() && !$('#sign-up-password').val() == "") {
-            if (uname == true) {
+            if (uname == true || $('#change-pass').val() == "true") {
                 $('#sign-up-submit').prop('disabled', false);
             }
             $('#pass-match').html('Passwords match!');
@@ -136,7 +136,7 @@ $(function () {
                     post_id: clickedBtnID
                 })
                 .done(function (data) {
-                    window.location.replace("index?dash=forum");
+                    window.location.replace("index.php?dash=forum");
                 });
         })
     })

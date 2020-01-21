@@ -51,15 +51,36 @@ if (isset($_GET['success'])=== true) {
     <form action="<?php echo htmlspecialchars("../src/verify.php");?>" method="post">
         <h4>Change Password</h4>
         Current Password
-        <input type="password" name="" id="">
+        <input type="password" name="current-password" id="">
         New Password
-        <input type="password" name="" id="">
-        Re-type New Password
-        <input type="password" name="" id="">
-        <button type="submit">Submit</button>
+    <input type="password" name="password" id="sign-up-password" required>
+    Confirm Password
+    <input type="password" name="password-verify" id="sign-up-password-check" required>
+    <input type="hidden" name="change-pass" id="change-pass" value="true">
+    <p id="pass-match"></p>
+    <button id="sign-up-submit" type="submit" name="sign-up-submit">Submit</button>
     </form>
     <form action="<?php echo htmlspecialchars("../src/verify.php");?>" method="post">
         <h4>Delete Account</h4>
-        <button type="submit">Delete</button>
+        <button id="delete-accounnt" type="submit">Delete</button>
     </form>
+</div>
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Woah!!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="confirm-delete" type="button" class="btn btn-primary">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>

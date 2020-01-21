@@ -34,7 +34,8 @@
            </div>
          </li>
        </ul>
-       <img id="profile-picture" src="<?php echo $_SESSION["profile-picture"]; ?>" alt="">
+       <!-- ADD notifications -->
+       <img id="profile-picture" src="<?php echo (isset($_SESSION["profile-picture"])? $_SESSION["profile-picture"]: "../images/TempProfile.jpg"); ?>" alt="">
        <?php echo $_SESSION["username"]; ?>
 
      </div>
